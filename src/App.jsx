@@ -13,12 +13,15 @@ function App() {
   }
 
   const [readingTime,setReadingTime]=useState(0);
-  const handleMarkAsRead=(time)=>{
-    // console.log('Reading time ');
-    // console.log('Reading time ',time);
+
+  const handleMarkAsRead=(id,time)=>{
     const newReadingTime=time+readingTime;
-    // console.log(newReadingTime);
     setReadingTime(newReadingTime);
+
+    // remove blog from bookmark
+    // console.log('remove bookmark',id);
+    const remainingBookmark=bookmarks.filter(bookmark=>bookmark.id !== id);
+    setBookmarks(remainingBookmark);
   }
 
   return (
